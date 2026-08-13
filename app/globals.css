@@ -1,0 +1,155 @@
+@import "tailwindcss";
+
+/* Workshop-journal palette: warm paper, copper hardware, ink notes.
+   Tuned for kids ~8–12 and adults reading together — high contrast, not neon. */
+:root {
+  --paper: #f3ead8;
+  --paper-deep: #e4d3b4;
+  --cream: #fff8ee;
+  --ink: #2c2118;
+  --ink-soft: #5e4c3c;
+  --copper: #c45c2a;
+  --copper-deep: #8f3a14;
+  --sky: #4f7fa3;
+  --moss: #3f6b48;
+  --line: rgba(44, 33, 24, 0.12);
+  --shadow: 0 18px 40px rgba(44, 33, 24, 0.08);
+  --background: var(--paper);
+  --foreground: var(--ink);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-paper: var(--paper);
+  --color-paper-deep: var(--paper-deep);
+  --color-cream: var(--cream);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-copper: var(--copper);
+  --color-copper-deep: var(--copper-deep);
+  --color-sky: var(--sky);
+  --color-moss: var(--moss);
+  --color-line: var(--line);
+  --font-sans: var(--font-body);
+  --font-display: var(--font-display);
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  background:
+    radial-gradient(1200px 600px at 10% -10%, rgba(196, 92, 42, 0.12), transparent 50%),
+    radial-gradient(900px 500px at 110% 0%, rgba(79, 127, 163, 0.14), transparent 46%),
+    var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body), "Nunito", sans-serif;
+}
+
+/* Markdown in journal posts and docs-derived pages */
+.md-body {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--ink);
+}
+
+.md-body > * + * {
+  margin-top: 1rem;
+}
+
+.md-body h2 {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: 1.6rem;
+  margin-top: 2rem;
+  letter-spacing: -0.03em;
+}
+
+.md-body h3 {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: 1.25rem;
+  margin-top: 1.6rem;
+}
+
+.md-body a {
+  color: var(--copper-deep);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.md-body ul,
+.md-body ol {
+  padding-left: 1.3rem;
+}
+
+.md-body li + li {
+  margin-top: 0.35rem;
+}
+
+.md-body code {
+  font-size: 0.92em;
+  background: var(--paper-deep);
+  padding: 0.1em 0.35em;
+  border-radius: 0.35rem;
+}
+
+.md-body pre {
+  overflow-x: auto;
+  background: #2c2118;
+  color: #fff8ee;
+  padding: 1rem 1.1rem;
+  border-radius: 1rem;
+}
+
+.md-body pre code {
+  background: transparent;
+  padding: 0;
+  color: inherit;
+}
+
+.md-body table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.md-body th,
+.md-body td {
+  border: 1px solid var(--line);
+  padding: 0.55rem 0.7rem;
+  text-align: left;
+}
+
+.md-body th {
+  background: var(--paper-deep);
+}
+
+.md-body blockquote {
+  border-left: 4px solid var(--copper);
+  padding-left: 1rem;
+  color: var(--ink-soft);
+}
+
+/* Gentle tail wag on the homepage mark */
+@keyframes pup-wag {
+  0%,
+  100% {
+    transform: rotate(-8deg);
+  }
+  50% {
+    transform: rotate(14deg);
+  }
+}
+
+.pup-tail {
+  transform-origin: 86px 86px;
+  animation: pup-wag 1.4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pup-tail {
+    animation: none;
+  }
+}

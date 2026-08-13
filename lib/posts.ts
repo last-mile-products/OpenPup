@@ -1,0 +1,66 @@
+import fs from "node:fs";
+import path from "node:path";
+import matter from "gray-matter";
+
+// Journal posts live as markdown so the family can add a new day without touching React.
+const POSTS_DIR = path.join(process.cwd(), "content/posts");
+
+export type PostMeta = {
+  slug: string;
+  title: string;
+  date: string;
+  summary: string;
+  authors: string;
+  tags: string[];
+};
+
+export type Post = PostMeta & {
+  content: string;
+};
+
+function isMarkdownFile(name: string) {
+  return name.endsWith(".md");
+}
+
+function parsePost(filename: string): Post {
+  const slug = filename.replace(/\.md$/, "");
+  const raw = fs.readFileSync(path.join(POSTS_DIR, filename), "utf8");
+  // Quote YAML values that contain colons (summary: "A Pi: the brain") or gray-matter throws.
+  const { data, content } = matter(raw);
+
+  return {
+    slug,
+    title: String(data.title ?? slug),
+    date: String(data.date ?? ""),
+    summary: String(data.summary ?? ""),
+    authors: String(data.authors ?? "The Fletcher family"),
+    tags: Array.isArray(data.tags) ? data.tags.map(String) : [],
+    content,
+  };
+}
+
+export function getAllPosts(): Post[] {
+  if (!fs.existsSync(POSTS_DIR)) return [];
+
+  return fs
+    .readdirSync(POSTS_DIR)
+    .filter(isMarkdownFile)
+    .map(parsePost)
+    .sort((a, b) => (a.date < b.date ? 1 : -1));
+}
+
+export function getPost(slug: string): Post | null {
+  const file = path.join(POSTS_DIR, `${slug}.md`);
+  if (!fs.existsSync(file)) return null;
+  return parsePost(`${slug}.md`);
+}
+
+export function formatPostDate(date: string) {
+  if (!date) return "";
+  const parsed = new Date(`${date}T12:00:00`);
+  return parsed.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+}
