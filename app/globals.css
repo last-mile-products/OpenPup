@@ -153,3 +153,14 @@ body {
     animation: none;
   }
 }
+
+/* Ideating desk: faint notebook lines under the scattered scraps */
+.desk {
+  background-image:
+    repeating-linear-gradient(
+      transparent,
+      transparent 27px,
+      rgba(44, 33, 24, 0.045) 28px
+    );
+  background-size: 100% 28px;
+}

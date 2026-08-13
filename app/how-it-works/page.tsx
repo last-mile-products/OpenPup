@@ -27,7 +27,7 @@ export default function HowItWorksPage() {
       </div>
 
       <p className="mt-8 text-ink-soft">
-        Build order (also a draft) is on the{" "}
+        Build ideas (still on paper) are on the{" "}
         <Link href="/build" className="font-extrabold text-copper-deep underline">
           build guide
         </Link>

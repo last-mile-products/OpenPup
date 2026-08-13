@@ -1,81 +1,64 @@
 import Link from "next/link";
-import { EmptyState } from "@/components/EmptyState";
-import { PuppyMark } from "@/components/PuppyMark";
+import { DeskDoodles, SketchPad } from "@/components/DeskDoodles";
 import { PostCard } from "@/components/PostCard";
 import { getAllPosts } from "@/lib/posts";
+import { projectStatus, statusLinks } from "@/lib/project-status";
+
+// Home is a status desk. Mood comes from lib/project-status.ts (currently ideating).
 
 export default function HomePage() {
-  const latest = getAllPosts().slice(0, 2);
+  const latest = getAllPosts().slice(0, 1);
 
   return (
-    <div>
-      <section className="mx-auto grid max-w-5xl items-center gap-10 px-4 py-14 md:grid-cols-[1.1fr_0.9fr] md:py-20">
-        <div>
-          <p className="text-sm font-extrabold uppercase tracking-[0.18em] text-copper">Family DIY · just getting started</p>
-          <h1 className="mt-3 max-w-xl font-display text-5xl font-semibold tracking-tight text-balance sm:text-6xl">
-            We are building a robot puppy for the house.
-          </h1>
-          <p className="mt-5 max-w-xl text-lg leading-8 text-ink-soft">
-            OpenPup is a real mini robot — a Raspberry Pi in the body, OpenClaw software, and a computer in the house
-            for the hard thinking. This site will be the journal: posts, photos, videos, and build notes as they happen.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-3">
+    <div className="desk relative overflow-hidden">
+      <DeskDoodles />
+
+      <section className="relative z-10 mx-auto max-w-5xl px-4 pt-12 pb-8 md:pt-16">
+        <p className="inline-flex items-center gap-2 rounded-full border border-line bg-cream px-3 py-1 text-sm font-extrabold uppercase tracking-[0.16em] text-copper">
+          <span className="h-2 w-2 rounded-full bg-copper" aria-hidden="true" />
+          Status: {projectStatus.label}
+        </p>
+        <h1 className="mt-4 max-w-2xl font-display text-4xl font-semibold tracking-tight text-balance sm:text-6xl">
+          {projectStatus.headline}
+        </h1>
+        <p className="mt-5 max-w-xl text-lg leading-8 text-ink-soft">{projectStatus.about}</p>
+        <p className="mt-3 text-sm font-bold text-ink-soft">{projectStatus.deskNote}</p>
+      </section>
+
+      <section className="relative z-10 mx-auto grid max-w-5xl items-start gap-10 px-4 pb-8 md:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)]">
+        <SketchPad />
+
+        <div className="grid gap-3">
+          <h2 className="font-display text-2xl font-semibold tracking-tight">On the desk</h2>
+          {statusLinks.map((link) => (
             <Link
-              href="/how-it-works"
-              className="rounded-full bg-copper px-5 py-2.5 text-sm font-extrabold text-cream hover:bg-copper-deep"
+              key={link.href}
+              href={link.href}
+              className="block rounded-2xl border border-line bg-cream/90 p-4 shadow-[var(--shadow)] transition-transform hover:-rotate-1"
             >
-              How it works
+              <div className="flex items-baseline justify-between gap-3">
+                <h3 className="font-display text-xl font-semibold">{link.title}</h3>
+                <span className="text-xs font-extrabold uppercase tracking-wide text-copper">{link.status}</span>
+              </div>
+              <p className="mt-1 text-sm text-ink-soft">{link.note}</p>
             </Link>
-            <Link
-              href="/journal"
-              className="rounded-full border border-ink/15 bg-cream px-5 py-2.5 text-sm font-extrabold hover:bg-paper-deep"
-            >
-              Journal
-            </Link>
-          </div>
-        </div>
-        <div className="flex justify-center">
-          <div className="relative rounded-[2.5rem] border border-line bg-cream p-8 shadow-[var(--shadow)]">
-            <PuppyMark className="h-56 w-56 sm:h-64 sm:w-64" />
-            <p className="mt-4 text-center text-sm font-bold text-ink-soft">The puppy still needs a name.</p>
-          </div>
+          ))}
         </div>
       </section>
 
-      <section className="mx-auto grid max-w-5xl gap-4 px-4 pb-8 sm:grid-cols-3">
-        {[
-          {
-            title: "Pi in the body",
-            body: "A Raspberry Pi rides along so the puppy can see, hear, talk, and move without a giant computer on its back.",
-          },
-          {
-            title: "House brain",
-            body: "Hard tasks — long answers, memory, big models — go to a plugged-in computer on our home network.",
-          },
-          {
-            title: "Kids on the crew",
-            body: "Built with kids about 8–12: photos, tests, naming, and journal entries are real jobs.",
-          },
-        ].map((card) => (
-          <article key={card.title} className="rounded-3xl border border-line bg-cream/80 p-5">
-            <h2 className="font-display text-xl font-semibold">{card.title}</h2>
-            <p className="mt-2 text-ink-soft">{card.body}</p>
-          </article>
-        ))}
-      </section>
-
-      <section className="mx-auto max-w-5xl px-4 py-10">
-        <h2 className="mb-5 font-display text-3xl font-semibold tracking-tight">Journal</h2>
+      <section className="relative z-10 mx-auto max-w-5xl px-4 py-10">
+        <div className="mb-4 flex items-end justify-between gap-4">
+          <h2 className="font-display text-2xl font-semibold tracking-tight">Latest journal</h2>
+          <Link href="/journal" className="text-sm font-extrabold text-copper-deep">
+            All entries →
+          </Link>
+        </div>
         {latest.length === 0 ? (
-          <EmptyState title="Nothing posted yet">
-            <p>Build-day notes will show up here. Check back after the first real mess.</p>
-          </EmptyState>
+          <p className="rounded-2xl border border-dashed border-line bg-cream/70 px-5 py-8 text-ink-soft">
+            Nothing pinned up yet. The first build-day note will sit here.
+          </p>
         ) : (
-          <div className="grid gap-4 md:grid-cols-2">
-            {latest.map((post) => (
-              <PostCard key={post.slug} post={post} />
-            ))}
-          </div>
+          <PostCard post={latest[0]} />
         )}
       </section>
     </div>
