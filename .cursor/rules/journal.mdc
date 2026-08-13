@@ -1,0 +1,12 @@
+---
+description: Pin a public goal, work in local notes, journal only when the goal is done.
+alwaysApply: true
+---
+
+# Goal → work → journal
+
+1. **Pin first.** Write the goal description together. Add it to `lib/goals.ts` (`current` or `next`). It appears on `/` and `/goals`.
+2. **Work quietly.** Notes go in gitignored `notes/entries/` (copy `notes/TEMPLATE.md`). No WIP posts. No invented quotes.
+3. **Journal when done.** Draft `content/posts/` together. Stay `draft: true` until told to publish. Then mark the goal `done` and set `journalSlug`.
+
+Never put secrets, addresses, or API keys in notes or posts.

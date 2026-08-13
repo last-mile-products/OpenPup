@@ -1,5 +1,11 @@
 # How to add a journal post or media
 
+## Notes first (local)
+
+Do not start in `content/posts/`. Pin the goal in `lib/goals.ts` first (it shows on `/goals`). Then copy `notes/TEMPLATE.md` to `notes/entries/YYYY-MM-DD-slug.md` and dump bullets while you work. That folder is gitignored. When the goal is finished, draft the public post together.
+
+When the note is ready, draft the public post together, then:
+
 ## New journal post
 
 1. Copy an existing file in `content/posts/`.

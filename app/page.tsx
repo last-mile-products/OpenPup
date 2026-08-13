@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { DeskDoodles, SketchPad } from "@/components/DeskDoodles";
 import { PostCard } from "@/components/PostCard";
+import { currentGoal, nextGoal } from "@/lib/goals";
 import { getAllPosts } from "@/lib/posts";
 import { projectStatus, statusLinks } from "@/lib/project-status";
 
@@ -8,6 +9,8 @@ import { projectStatus, statusLinks } from "@/lib/project-status";
 
 export default function HomePage() {
   const latest = getAllPosts().slice(0, 1);
+  const now = currentGoal();
+  const upcoming = nextGoal();
 
   return (
     <div className="desk relative overflow-hidden">
@@ -23,6 +26,35 @@ export default function HomePage() {
         </h1>
         <p className="mt-5 max-w-xl text-lg leading-8 text-ink-soft">{projectStatus.about}</p>
         <p className="mt-3 text-sm font-bold text-ink-soft">{projectStatus.deskNote}</p>
+      </section>
+
+      <section className="relative z-10 mx-auto grid max-w-5xl gap-4 px-4 pb-8 md:grid-cols-2">
+        {now ? (
+          <Link
+            href={`/goals#${now.slug}`}
+            className="rounded-3xl border border-copper bg-cream p-6 shadow-[var(--shadow)]"
+          >
+            <p className="text-sm font-extrabold uppercase tracking-[0.16em] text-copper">Now</p>
+            <h2 className="mt-2 font-display text-2xl font-semibold tracking-tight">{now.title}</h2>
+            <p className="mt-2 text-ink-soft">{now.description}</p>
+          </Link>
+        ) : null}
+        {upcoming ? (
+          <Link
+            href={`/goals#${upcoming.slug}`}
+            className="rounded-3xl border border-dashed border-line bg-cream/80 p-6"
+          >
+            <p className="text-sm font-extrabold uppercase tracking-[0.16em] text-ink-soft">Next</p>
+            <h2 className="mt-2 font-display text-2xl font-semibold tracking-tight">{upcoming.title}</h2>
+            <p className="mt-2 text-ink-soft">{upcoming.description}</p>
+          </Link>
+        ) : (
+          <div className="rounded-3xl border border-dashed border-line bg-cream/70 p-6">
+            <p className="text-sm font-extrabold uppercase tracking-[0.16em] text-ink-soft">Next</p>
+            <h2 className="mt-2 font-display text-2xl font-semibold tracking-tight">Not pinned yet</h2>
+            <p className="mt-2 text-ink-soft">When we pick the next goal, it will sit here before we start.</p>
+          </div>
+        )}
       </section>
 
       <section className="relative z-10 mx-auto grid max-w-5xl items-start gap-10 px-4 pb-8 md:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)]">
@@ -55,7 +87,7 @@ export default function HomePage() {
         </div>
         {latest.length === 0 ? (
           <p className="rounded-2xl border border-dashed border-line bg-cream/70 px-5 py-8 text-ink-soft">
-            Nothing pinned up yet. The first build-day note will sit here.
+            Journal entries show up when a goal is finished — not while we are still in the middle.
           </p>
         ) : (
           <PostCard post={latest[0]} />

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Fraunces, Nunito } from "next/font/google";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
+import { cn } from "@/lib/utils";
 import "./globals.css";
 
 // Soft serif for titles (workshop journal) + rounded sans for kid-readable body copy.
@@ -30,11 +31,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${display.variable} ${body.variable} h-full antialiased`}
+      className={cn(display.variable, body.variable, "h-full antialiased")}
     >
-      <body className="min-h-full flex flex-col font-sans text-ink">
+      <body className="flex min-h-dvh flex-col font-sans text-ink">
         <SiteHeader />
-        <main className="flex-1">{children}</main>
+        <main className="flex min-h-0 flex-1 flex-col">{children}</main>
         <SiteFooter />
       </body>
     </html>

@@ -67,7 +67,7 @@ export default async function JournalPage({
       <div className="mt-8">
         {posts.length === 0 ? (
           <EmptyState title="No entries yet">
-            <p>The first write-up will land here once we start building in the real world.</p>
+            <p>We write here when a goal is finished — not while we are still in the middle of it.</p>
           </EmptyState>
         ) : (
           <div className="grid gap-4">

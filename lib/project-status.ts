@@ -12,7 +12,9 @@ export const projectStatus = {
 };
 
 export const statusLinks = [
-  { href: "/journal", title: "Journal", status: "Empty", note: "No build days posted yet." },
+  { href: "/journal", title: "Journal", status: "Empty", note: "We write when a goal is finished." },
+  { href: "/goals", title: "Goals", status: "Now", note: "What's pinned, and what's next." },
+  { href: "/calendar", title: "Calendar", status: "Live", note: "Days a goal or journal went public." },
   { href: "/how-it-works", title: "How it works", status: "Draft", note: "A short sketch of two brains." },
   { href: "/build", title: "Build guide", status: "Ideating", note: "Still on paper. No parts ordered." },
   { href: "/gallery", title: "Gallery", status: "Coming soon", note: "Pictures once there is a puppy." },

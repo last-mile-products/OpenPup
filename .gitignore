@@ -72,3 +72,6 @@ next-env.d.ts
 
 # vercel
 .vercel
+
+# Local journal inbox — raw notes, not public posts
+notes/entries/
