@@ -12,6 +12,7 @@ export type PostMeta = {
   summary: string;
   authors: string;
   tags: string[];
+  draft: boolean;
 };
 
 export type Post = PostMeta & {
@@ -35,6 +36,8 @@ function parsePost(filename: string): Post {
     summary: String(data.summary ?? ""),
     authors: String(data.authors ?? "The Fletcher family"),
     tags: Array.isArray(data.tags) ? data.tags.map(String) : [],
+    // draft: true keeps a post in git but off the public site
+    draft: Boolean(data.draft),
     content,
   };
 }
@@ -46,13 +49,17 @@ export function getAllPosts(): Post[] {
     .readdirSync(POSTS_DIR)
     .filter(isMarkdownFile)
     .map(parsePost)
+    .filter((post) => !post.draft)
     .sort((a, b) => (a.date < b.date ? 1 : -1));
 }
 
 export function getPost(slug: string): Post | null {
   const file = path.join(POSTS_DIR, `${slug}.md`);
   if (!fs.existsSync(file)) return null;
-  return parsePost(`${slug}.md`);
+  const post = parsePost(`${slug}.md`);
+  // Drafts 404 on the public site so unpublished URLs are not guessable as live pages
+  if (post.draft) return null;
+  return post;
 }
 
 export function formatPostDate(date: string) {

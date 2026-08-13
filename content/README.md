@@ -12,10 +12,13 @@ title: Day 3 — First tail wag
 date: 2026-08-20
 summary: One or two sentences for the journal card.
 authors: The Fletcher family
+draft: false
 tags:
   - hardware
 ---
 ```
+
+Set `draft: true` to keep a post in the repo but off the public site.
 
 4. Write the story in markdown. Drop photos in `public/media/` and embed them with `![alt](/media/your-photo.jpg)`.
 5. Run `npm run dev` and open `/journal`.

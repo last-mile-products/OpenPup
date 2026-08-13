@@ -3,6 +3,7 @@ title: The puppy gets two brains
 date: 2026-08-13
 summary: "A Raspberry Pi rides in the puppy. A house computer does the heavy thinking. OpenClaw is the software that ties them together."
 authors: The Fletcher family
+draft: true
 tags:
   - architecture
   - raspberry-pi

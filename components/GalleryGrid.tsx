@@ -7,19 +7,6 @@ function youtubeSrc(src: string) {
 }
 
 export function GalleryGrid({ items }: { items: GalleryItem[] }) {
-  if (items.length === 0) {
-    return (
-      <div className="rounded-3xl border border-dashed border-line bg-cream p-8 text-ink-soft">
-        <p className="font-display text-2xl font-semibold text-ink">No photos yet — on purpose.</p>
-        <p className="mt-3 max-w-xl">
-          Drop pictures into <code className="rounded bg-paper-deep px-1.5">public/media/</code> and list them in{" "}
-          <code className="rounded bg-paper-deep px-1.5">content/gallery.json</code>. Long videos are happier on
-          YouTube than in git. See <code className="rounded bg-paper-deep px-1.5">content/README.md</code>.
-        </p>
-      </div>
-    );
-  }
-
   return (
     <div className="grid gap-6 sm:grid-cols-2">
       {items.map((item) => (

@@ -3,6 +3,7 @@ title: Day 0 — We decided to build a robot puppy
 date: 2026-08-13
 summary: "A family DIY project: a real mini robot puppy for the house, with a Raspberry Pi brain and a website to remember the journey."
 authors: The Fletcher family
+draft: true
 tags:
   - start
   - family
