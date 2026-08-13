@@ -13,32 +13,62 @@
 # testing
 /coverage
 
-# next.js
+# next.js build output (regenerated locally / in CI)
 /.next/
 /out/
 
 # production
 /build
 
-# misc
+# misc / OS
 .DS_Store
-*.pem
+Thumbs.db
+desktop.ini
 
-# debug
+# editor / agent local settings
+.idea/
+.claude/
+
+# debug logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
+firebase-debug.log
+firebase-debug.*.log
+ui-debug.log
+firestore-debug.log
+*.log
 
-# env files (can opt-in for committing if needed)
-.env*
+# env files and anything that might hold keys
+.env
+.env.*
+!.env.example
+*.pem
+*.p12
+*.key
 
-# firebase
-.firebase
+# Firebase: local cache + this clone's project alias (forks use their own)
+.firebase/
+.firebaserc
 
-# vercel
-.vercel
+# Service accounts and mobile SDK config — never commit
+secrets/
+*service-account*.json
+*-firebase-adminsdk-*.json
+google-services.json
+GoogleService-Info.plist
+
+# OpenClaw / robot brain config (API keys, gateway tokens, local .env)
+.openclaw/
+**/.openclaw/
+openclaw.json
+**/.openclaw.json
+**/.env
 
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# vercel
+.vercel

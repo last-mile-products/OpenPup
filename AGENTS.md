@@ -20,4 +20,5 @@ Family DIY robot puppy + static journey site.
 - **Do not** expose OpenClaw to the public internet; house LAN first
 - Puppy **name is TBD**; project name is OpenPup
 - Add comments in new code so later prompts can find the “why”
+- This is a **public** GitHub repo (MIT). Never commit `.env`, service accounts, `.firebaserc`, or OpenClaw gateway config. Forks copy `.firebaserc.example`.
 

@@ -46,3 +46,5 @@ Edit `content/gallery.json`:
 ```
 
 Prefer YouTube/Vimeo (or Firebase Storage later) for long videos. Git and Firebase Hosting are a poor place for huge MP4s.
+
+This journal is public. Do not commit secrets, home addresses, or media you are not willing to share.

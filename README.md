@@ -1,17 +1,23 @@
 # OpenPup
 
-A Fletcher family DIY project: a real-life mini robot puppy for the house, plus this website as the journey log.
+A family DIY **robot puppy** (Raspberry Pi + OpenClaw + a house computer for hard tasks) and the **static journal site** that documents the build.
+
+This repository is the Fletcher family's public journey log. Fork it if you want to build your own.
+
+- Live site: [https://openpup.web.app](https://openpup.web.app)
+- License: [MIT](LICENSE)
 
 The puppy does not have a real name yet. **OpenPup** is the project name.
 
-## What we are building
+## What this repo contains
 
-- A DIY robot puppy kids (~8–12) can help design, test, photograph, and write about
-- A **Raspberry Pi** in the body running **OpenClaw** (see, hear, talk, move)
-- A **local house server** for hard tasks (long thinking, memory, bigger models)
-- A **static website** (this repo) with journal posts, photos, and videos, hosted on **Firebase Hosting**
+- A Next.js static website (journal, how-it-works, build guide, gallery)
+- Starter robot notes: architecture, build phases, bill of materials
+- **No secrets.** API keys, OpenClaw config, service accounts, and your Firebase project alias stay on your machine.
 
-## Website (this folder)
+## Quick start (website)
+
+Requires Node.js 20+.
 
 ```bash
 npm install
@@ -30,21 +36,39 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ### Add a journal post
 
-Create `content/posts/your-slug.md` with title/date/summary frontmatter. Details: [`content/README.md`](content/README.md).
+Create `content/posts/your-slug.md` with title/date/summary frontmatter. Quote YAML values that contain a colon. Details: [`content/README.md`](content/README.md).
 
 ### Add photos or videos
 
-Put files in `public/media/` and list them in `content/gallery.json`. Prefer YouTube for long videos.
+Put files in `public/media/` and list them in `content/gallery.json`. Prefer YouTube (or similar) for long videos — do not commit huge binaries.
 
-## Deploy to Firebase Hosting
+This site is public. Do not commit Wi-Fi passwords, home addresses, API keys, or photos you are not willing to share.
 
-This app is a static export (`next.config.ts` → `output: "export"`). The built files land in `out/`.
+## Forking and deploying your own site
 
-1. Log in: `npx -y firebase-tools@latest login`
-2. Project is already set: **openpup** (`.firebaserc`)
-3. `npm run deploy:hosting`
+The Firebase project in this org (`openpup` → https://openpup.web.app) belongs to the original project. **Forks must create their own Firebase project.** You cannot deploy to ours.
 
-Live URL after deploy: [https://openpup.web.app](https://openpup.web.app)
+1. Copy the example alias file (gitignored on purpose so clones do not share a project):
+
+   ```bash
+   cp .firebaserc.example .firebaserc
+   ```
+
+2. Sign in and create or select **your** project:
+
+   ```bash
+   npx -y firebase-tools@latest login
+   npx -y firebase-tools@latest projects:create your-id --display-name "OpenPup"
+   npx -y firebase-tools@latest use --add
+   ```
+
+3. Build the static export (`out/`) and deploy Hosting:
+
+   ```bash
+   npm run deploy:hosting
+   ```
+
+`firebase.json` is safe to keep in git (hosting config only). `.firebaserc` is not committed.
 
 ## Robot notes
 
@@ -53,3 +77,9 @@ Live URL after deploy: [https://openpup.web.app](https://openpup.web.app)
 - [`lib/bom.ts`](lib/bom.ts) — starter bill of materials (also rendered on `/build`)
 
 Hardware work is still ahead. The site is Phase 0.
+
+**Safety:** grown-ups handle mains power, batteries, and soldering. Keep OpenClaw on the local network (or Tailscale). Do not expose the gateway to the public internet. This software is provided as-is; see [LICENSE](LICENSE).
+
+## License
+
+MIT. See [LICENSE](LICENSE).
