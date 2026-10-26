@@ -23,6 +23,15 @@ function isMarkdownFile(name: string) {
   return name.endsWith(".md");
 }
 
+function asDateString(value: unknown): string {
+  // js-yaml turns an unquoted `date: 2026-10-24` into a Date at UTC midnight.
+  // String(date) is a timestamp, which breaks the journal heading and the calendar key.
+  if (value instanceof Date && !Number.isNaN(value.getTime())) {
+    return value.toISOString().slice(0, 10);
+  }
+  return String(value ?? "");
+}
+
 function parsePost(filename: string): Post {
   const slug = filename.replace(/\.md$/, "");
   const raw = fs.readFileSync(path.join(POSTS_DIR, filename), "utf8");
@@ -32,7 +41,7 @@ function parsePost(filename: string): Post {
   return {
     slug,
     title: String(data.title ?? slug),
-    date: String(data.date ?? ""),
+    date: asDateString(data.date),
     summary: String(data.summary ?? ""),
     authors: String(data.authors ?? "The Fletcher family"),
     tags: Array.isArray(data.tags) ? data.tags.map(String) : [],

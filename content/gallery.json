@@ -1,3 +1,32 @@
 {
-  "items": []
+  "items": [
+    {
+      "type": "image",
+      "src": "/media/20261024_113309.jpg",
+      "alt": "All the parts on the table",
+      "caption": "All the parts on the table",
+      "date": "2026-10-24"
+    },
+    {
+      "type": "image",
+      "src": "/media/20261024_112347.jpg",
+      "alt": "The Raspberry Pi 5 box",
+      "caption": "The Raspberry Pi 5 box",
+      "date": "2026-10-24"
+    },
+    {
+      "type": "image",
+      "src": "/media/20261024_113317.jpg",
+      "alt": "Pi 5 mounted on the chassis plate",
+      "caption": "Pi 5 mounted on the chassis plate",
+      "date": "2026-10-24"
+    },
+    {
+      "type": "image",
+      "src": "/media/20261024_113041.jpg",
+      "alt": "Holding the camera bracket",
+      "caption": "Holding the camera bracket",
+      "date": "2026-10-24"
+    }
+  ]
 }

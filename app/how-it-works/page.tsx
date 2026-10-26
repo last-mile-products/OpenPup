@@ -22,12 +22,13 @@ export default function HowItWorksPage() {
           <strong>computer in the house</strong> over our home network.
         </p>
         <p className="leading-7 text-ink-soft">
-          Fast pet stuff stays on board. Homework stays at the desk. Nothing here is hooked up yet.
+          Fast pet stuff stays on board. Homework stays at the desk. The body build has started. This split is not
+          hooked up yet.
         </p>
       </div>
 
       <p className="mt-8 text-ink-soft">
-        Build ideas (still on paper) are on the{" "}
+        Parts and where the build stands are on the{" "}
         <Link href="/build" className="font-extrabold text-copper-deep underline">
           build guide
         </Link>

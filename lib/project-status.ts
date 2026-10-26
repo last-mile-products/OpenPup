@@ -3,28 +3,30 @@
 export type ProjectPhase = "ideating" | "building" | "alive";
 
 export const projectStatus = {
-  phase: "ideating" as ProjectPhase,
-  label: "Ideating",
+  phase: "building" as ProjectPhase,
+  label: "Building",
   headline: "We are building a robot puppy for the house.",
   about:
-    "A family DIY robot — Raspberry Pi in the body, OpenClaw software, and a computer in the house for hard thinking. Right now we are still on paper: naming, sketching, and arguing about ears.",
-  deskNote: "The desk is a mess of ideas. That is the point.",
+    "A Raspberry Pi 5 rides on a SunFounder PiCar-X for driving, the camera, and audio. Hard thinking goes to a Mac mini at home. We start with SunFounder's tools, then move to OpenClaw. A 3D-printed teal puppy head will sit on the pan-tilt mount, printed on my brother's Bambu printer. We have started building.",
+  deskNote: "The parts are on the table. Build day 1 is in the journal.",
+  // Newsletter link on the home hero. Label stays “Follow along”.
+  followAlongHref: "https://jonlmp.substack.com",
 };
 
 export const statusLinks = [
-  { href: "/journal", title: "Journal", status: "Empty", note: "We write when a goal is finished." },
+  { href: "/journal", title: "Journal", status: "Build day 1", note: "Saturday, October 24. About an hour." },
   { href: "/goals", title: "Goals", status: "Now", note: "What's pinned, and what's next." },
   { href: "/calendar", title: "Calendar", status: "Live", note: "Days a goal or journal went public." },
   { href: "/how-it-works", title: "How it works", status: "Draft", note: "A short sketch of two brains." },
-  { href: "/build", title: "Build guide", status: "Ideating", note: "Still on paper. No parts ordered." },
-  { href: "/gallery", title: "Gallery", status: "Coming soon", note: "Pictures once there is a puppy." },
+  { href: "/build", title: "Build guide", status: "Started", note: "Parts are here. The Pi is on the plate." },
+  { href: "/gallery", title: "Gallery", status: "Build day 1", note: "Four photos from the table." },
 ] as const;
 
-// Loose ideas for the build page while phase is ideating — not a locked sequence.
+// Loose later ideas on the build page — not a locked sequence. The live status is projectStatus.
 export const buildIdeas = [
   {
     title: "Desk puppy",
-    note: "A Pi on the table that can say hello. No motors.",
+    note: "The Pi on the chassis says hello before we worry about a finished body.",
   },
   {
     title: "Eyes and ears",

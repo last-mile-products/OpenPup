@@ -5,7 +5,7 @@ import { currentGoal, nextGoal } from "@/lib/goals";
 import { getAllPosts } from "@/lib/posts";
 import { projectStatus, statusLinks } from "@/lib/project-status";
 
-// Home is a status desk. Mood comes from lib/project-status.ts (currently ideating).
+// Home is a status desk. Mood comes from lib/project-status.ts.
 
 export default function HomePage() {
   const latest = getAllPosts().slice(0, 1);
@@ -25,6 +25,15 @@ export default function HomePage() {
           {projectStatus.headline}
         </h1>
         <p className="mt-5 max-w-xl text-lg leading-8 text-ink-soft">{projectStatus.about}</p>
+        <p className="mt-4">
+          {/* Leaves the site for the public newsletter. Same-tab so the back button returns here. */}
+          <a
+            href={projectStatus.followAlongHref}
+            className="font-extrabold text-copper-deep underline underline-offset-4"
+          >
+            Follow along
+          </a>
+        </p>
         <p className="mt-3 text-sm font-bold text-ink-soft">{projectStatus.deskNote}</p>
       </section>
 

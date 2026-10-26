@@ -195,6 +195,31 @@ body {
   color: var(--ink-soft);
 }
 
+/* Journal photos. The italic line directly under an image is its caption. */
+.md-body img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 1.5rem;
+  border: 1px solid var(--line);
+  background: var(--paper-deep);
+}
+
+.md-body p:has(> img:only-child) {
+  margin-top: 1.5rem;
+}
+
+.md-body p:has(> img:only-child) + p:has(> em:only-child) {
+  margin-top: 0.45rem;
+}
+
+.md-body p:has(> img:only-child) + p:has(> em:only-child) em {
+  font-style: normal;
+  font-weight: 700;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+}
+
 /* Gentle tail wag on the homepage mark */
 @keyframes pup-wag {
   0%,

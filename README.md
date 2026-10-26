@@ -76,7 +76,7 @@ The Firebase project in this org (`openpup` → https://openpup.web.app) belongs
 - [`docs/build-phases.md`](docs/build-phases.md) — order of operations
 - [`lib/bom.ts`](lib/bom.ts) — starter bill of materials (also rendered on `/build`)
 
-Hardware work is still ahead. The site is Phase 0.
+Hardware started on build day 1. The public write-up is [`content/posts/build-day-1.md`](content/posts/build-day-1.md).
 
 **Safety:** grown-ups handle mains power, batteries, and soldering. Keep OpenClaw on the local network (or Tailscale). Do not expose the gateway to the public internet. This software is provided as-is; see [LICENSE](LICENSE).
 

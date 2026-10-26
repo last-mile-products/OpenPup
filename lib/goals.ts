@@ -17,12 +17,32 @@ export type Goal = {
 
 export const goals: Goal[] = [
   {
+    slug: "camera-and-head",
+    title: "Camera, bracket, and a head",
+    description:
+      "Finish the camera and pan-tilt bracket we started on build day, then put a 3D-printed teal puppy head on that mount.",
+    lane: "current",
+    announced: "2026-10-26",
+  },
+  {
+    slug: "build-day-1",
+    title: "Build day 1",
+    description:
+      "Unbox the PiCar-X kit and the Pi 5, read the manual together, mount the Pi on the chassis plate, and start the camera bracket.",
+    lane: "done",
+    announced: "2026-10-24",
+    finished: "2026-10-24",
+    journalSlug: "build-day-1",
+  },
+  {
     slug: "how-we-work",
     title: "How we'll work",
     description:
       "Invent the loop for this project: pin a goal on the site, do the work without posting every step, then write a journal entry when that goal is done.",
-    lane: "current",
+    lane: "done",
     announced: "2026-08-13",
+    finished: "2026-08-13",
+    // The write-up of this loop is still a draft, so there is no public journal link yet.
   },
 ];
 
