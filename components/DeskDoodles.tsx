@@ -1,5 +1,5 @@
-// Decorative workshop scraps for the ideating desk. All aria-hidden.
-// Swap or hide these when projectStatus.phase is no longer "ideating".
+// Decorative workshop scraps for the home desk. All aria-hidden.
+// They stay while phase is "building" — the page is still a workshop table.
 
 function Scrap({ src, className }: { src: string; className: string }) {
   return (
@@ -82,7 +82,7 @@ export function SketchPad() {
         className="absolute top-[18%] right-[10%] w-[42%] rotate-[7deg] shadow-md"
       />
       <figcaption className="mt-4 text-center text-sm font-bold text-ink-soft">
-        Sketch pad: still mostly blank.
+        The puppy sketch is still a drawing. The chassis is on the table.
       </figcaption>
     </figure>
   );

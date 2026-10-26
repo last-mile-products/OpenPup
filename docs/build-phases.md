@@ -2,14 +2,17 @@
 
 Kid-friendly order of operations. Update this file when a phase finishes; also write a journal post.
 
-## Current — Ideating
+## Current — Building
 
-Still on paper. No parts ordered.
+Build day 1 (October 24, 2026) is done. About an hour. Nothing broke.
 
-- Name the puppy (OpenPup is the project name, not the pet)
-- Sketch what it might look like
-- Talk through Pi vs house computer
-- This website as the public journal
+- SunFounder PiCar-X kit, Raspberry Pi 5 (4GB), official 27W power supply. About $230 so far.
+- Pi 5 is mounted on the chassis plate
+- Camera and pan-tilt bracket are started
+- Next: finish that bracket, then a 3D-printed teal puppy head on the pan-tilt (brother's Bambu printer)
+- Driving, camera, and audio stay on the PiCar-X. Hard thinking goes to a Mac mini at home.
+- SunFounder's tools first, then OpenClaw
+- The puppy still needs a real name (OpenPup is the project name)
 
 ## Later ideas (not a schedule)
 
