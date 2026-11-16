@@ -1,0 +1,62 @@
+# Deploy the static site to Firebase Hosting.
+# Keyless auth: GitHub's OIDC token is exchanged for a short-lived Google
+# credential through Workload Identity Federation. No JSON keys and no
+# FIREBASE_TOKEN are stored in the repo or in Actions secrets.
+
+name: Deploy Firebase Hosting
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+# One Hosting release at a time. A newer push cancels an in-progress run so
+# two deploys never upload together, and the latest commit is the one that
+# publishes.
+concurrency:
+  group: firebase-hosting-deploy
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    # contents: read is enough to check out the repo.
+    # id-token: write lets google-github-actions/auth request an OIDC token
+    # for Workload Identity Federation.
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # package.json has no engines field and the repo has no .nvmrc.
+      # README requires Node.js 20+, so the workflow pins 20.
+      # cache: npm stores the npm cache keyed from package-lock.json.
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      # next.config.ts sets output: "export", so this writes the static site
+      # to out/. firebase.json already publishes that directory.
+      - name: Build static export
+        run: npm run build
+
+      # create_credentials_file writes an Application Default Credentials file
+      # and exports GOOGLE_APPLICATION_CREDENTIALS. firebase-tools reads that
+      # file; it does not need a stored token.
+      - name: Authenticate to Google Cloud
+        uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: projects/157224892820/locations/global/workloadIdentityPools/github/providers/openpup-repo
+          service_account: openpup-github-deployer@openpup.iam.gserviceaccount.com
+          create_credentials_file: true
+
+      - name: Deploy to Firebase Hosting
+        run: npx firebase-tools@latest deploy --only hosting --project openpup --non-interactive
