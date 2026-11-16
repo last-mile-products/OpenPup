@@ -22,8 +22,8 @@ export default function HowItWorksPage() {
           <strong>computer in the house</strong> over our home network.
         </p>
         <p className="leading-7 text-ink-soft">
-          Fast pet stuff stays on board. Homework stays at the desk. The body build has started. This split is not
-          hooked up yet.
+          Fast pet stuff stays on board. Homework stays at the desk. The body is built: it drives, hears, and follows a
+          face. OpenClaw is not hooked up yet.
         </p>
       </div>
 

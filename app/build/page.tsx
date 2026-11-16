@@ -32,18 +32,19 @@ export default function BuildPage() {
       </p>
       <h1 className="mt-4 font-display text-4xl font-semibold tracking-tight">Build guide</h1>
       <p className="mt-4 text-lg leading-8 text-ink-soft">
-        Build day 1 is done. The parts are unboxed, the Pi 5 is mounted on the chassis plate, and we have started the
-        camera and pan-tilt bracket.
+        The kit is built. The Pi 5 is on our Wi-Fi, driving is calibrated, the mic and speaker work, and the camera
+        follows a face. Right turns are still being figured out. No AI yet.
       </p>
 
       <section className="mt-10 rounded-3xl border border-line bg-cream p-6 shadow-[var(--shadow)]">
         <p className="text-sm font-extrabold uppercase tracking-[0.16em] text-copper">Right now</p>
         <h2 className="mt-2 font-display text-2xl font-semibold">{projectStatus.label}</h2>
         <ul className="mt-3 list-disc space-y-1 pl-5 text-ink-soft">
-          <li>Pi 5 on a PiCar-X for driving, the camera, and audio</li>
-          <li>Hard thinking goes to a Mac mini at home</li>
-          <li>SunFounder&apos;s tools first, then OpenClaw</li>
-          <li>A teal puppy head for the pan-tilt, printed on my brother&apos;s Bambu printer</li>
+          <li>Pi 5 on a PiCar-X, on our Wi-Fi, for driving, the camera, and audio</li>
+          <li>Driving is calibrated. Right turns are still being figured out</li>
+          <li>Mic and speaker work. The camera follows a face</li>
+          <li>SunFounder&apos;s tools today. OpenClaw is next, and it is not started</li>
+          <li>A teal puppy head for the pan-tilt, after we measure the mount, printed on my brother&apos;s Bambu printer</li>
         </ul>
       </section>
 

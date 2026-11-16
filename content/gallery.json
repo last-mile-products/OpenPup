@@ -27,6 +27,48 @@
       "alt": "Holding the camera bracket",
       "caption": "Holding the camera bracket",
       "date": "2026-10-24"
+    },
+    {
+      "type": "image",
+      "src": "/media/20261116-head-camera-ultrasonic.jpg",
+      "alt": "Camera and ultrasonic sensor on the pan-tilt bracket",
+      "caption": "Camera and ultrasonic sensor on the pan-tilt bracket",
+      "date": "2026-11-16"
+    },
+    {
+      "type": "image",
+      "src": "/media/20261116-wiring-servos-1.jpg",
+      "alt": "Wiring the servos",
+      "caption": "Wiring the servos",
+      "date": "2026-11-16"
+    },
+    {
+      "type": "image",
+      "src": "/media/20261116-wiring-servos-2.jpg",
+      "alt": "Wiring the servos",
+      "caption": "Wiring the servos",
+      "date": "2026-11-16"
+    },
+    {
+      "type": "image",
+      "src": "/media/20261116-pi-and-hat-closeup.jpg",
+      "alt": "Raspberry Pi 5 under the robot HAT",
+      "caption": "Raspberry Pi 5 under the robot HAT",
+      "date": "2026-11-16"
+    },
+    {
+      "type": "image",
+      "src": "/media/20261116-robot-hat-wiring-top.jpg",
+      "alt": "Robot HAT wiring from above",
+      "caption": "Robot HAT wiring from above",
+      "date": "2026-11-16"
+    },
+    {
+      "type": "video",
+      "src": "/media/20261116-face-following.mp4",
+      "alt": "The camera follows a face",
+      "caption": "The camera follows a face",
+      "date": "2026-11-16"
     }
   ]
 }

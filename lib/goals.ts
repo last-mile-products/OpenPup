@@ -20,9 +20,28 @@ export const goals: Goal[] = [
     slug: "camera-and-head",
     title: "Camera, bracket, and a head",
     description:
-      "Finish the camera and pan-tilt bracket we started on build day, then put a 3D-printed teal puppy head on that mount.",
+      "The camera and pan-tilt bracket are on, and the robot follows a face. Still to do: measure that mount and print a teal puppy head for it. Right turns are still being figured out.",
     lane: "current",
     announced: "2026-10-26",
+  },
+  {
+    slug: "openclaw-on-the-puppy",
+    title: "An AI the kids can talk to",
+    description:
+      "Put OpenClaw on the puppy so we can talk to it and start giving it real skills. No AI yet. That is the next post.",
+    lane: "next",
+    announced: "2026-11-16",
+  },
+  {
+    // Closed by the Nov 16 journal. The head print stays on camera-and-head.
+    slug: "it-drives-and-it-looks-back",
+    title: "It drives, and it looks back",
+    description:
+      "Finish the kit, get the Pi on our Wi-Fi, calibrate driving, get the mic and speaker working, and have the camera follow a face.",
+    lane: "done",
+    announced: "2026-11-16",
+    finished: "2026-11-16",
+    journalSlug: "it-drives-and-it-looks-back",
   },
   {
     slug: "build-day-1",

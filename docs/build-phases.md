@@ -4,14 +4,16 @@ Kid-friendly order of operations. Update this file when a phase finishes; also w
 
 ## Current — Building
 
-Build day 1 (October 24, 2026) is done. About an hour. Nothing broke.
+Build day 1 (October 24, 2026) is done. The November 16 journal covers the rest of the kit.
 
 - SunFounder PiCar-X kit, Raspberry Pi 5 (4GB), official 27W power supply. About $230 so far.
-- Pi 5 is mounted on the chassis plate
-- Camera and pan-tilt bracket are started
-- Next: finish that bracket, then a 3D-printed teal puppy head on the pan-tilt (brother's Bambu printer)
-- Driving, camera, and audio stay on the PiCar-X. Hard thinking goes to a Mac mini at home.
-- SunFounder's tools first, then OpenClaw
+- The car is built. The Pi 5 is on our Wi-Fi.
+- Driving is calibrated. Left turns work. Right turns are still being figured out (grip, or more calibration).
+- Mic and speaker work. The mic is quiet until the level is turned up.
+- The camera follows a face. SunFounder's tools are what it runs today.
+- AI is not started. Next post is OpenClaw, so we can talk to it.
+- Still to do before the teal puppy head: measure the camera and pan-tilt. Printed on my brother's Bambu printer.
+- Hard thinking goes to a Mac mini at home, once OpenClaw is on it.
 - The puppy still needs a real name (OpenPup is the project name)
 
 ## Later ideas (not a schedule)
