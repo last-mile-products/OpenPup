@@ -44,6 +44,12 @@ Put files in `public/media/` and list them in `content/gallery.json`. Prefer You
 
 This site is public. Do not commit Wi-Fi passwords, home addresses, API keys, or photos you are not willing to share.
 
+## Deploying
+
+Merges to `main` deploy the live site. GitHub Actions installs dependencies, runs `npm run build` (the static export in `out/`), and publishes that folder to Firebase Hosting for project `openpup`. The same workflow can be started by hand from the Actions tab.
+
+Authentication is keyless Workload Identity Federation. Each run exchanges GitHub's OIDC token for a short-lived credential on the deploy service account `openpup-github-deployer@openpup.iam.gserviceaccount.com`. The workflow is [`.github/workflows/firebase-hosting-deploy.yml`](.github/workflows/firebase-hosting-deploy.yml).
+
 ## Forking and deploying your own site
 
 The Firebase project in this org (`openpup` → https://openpup.web.app) belongs to the original project. **Forks must create their own Firebase project.** You cannot deploy to ours.
