@@ -29,7 +29,15 @@ export function GalleryGrid({ items }: { items: GalleryItem[] }) {
             <img src={item.src} alt={item.alt} className="max-h-[32rem] w-full bg-paper object-contain" />
           ) : null}
           {item.type === "video" ? (
-            <video className="aspect-[4/3] w-full bg-ink" controls src={item.src} />
+            // playsInline so a phone plays the clip in the card. Controls stay on so sound can be turned up.
+            <video
+              className="aspect-[4/3] w-full bg-ink object-contain"
+              controls
+              playsInline
+              preload="metadata"
+              src={item.src}
+              aria-label={item.alt}
+            />
           ) : null}
           {item.type === "youtube" ? (
             <iframe

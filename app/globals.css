@@ -195,8 +195,9 @@ body {
   color: var(--ink-soft);
 }
 
-/* Journal photos. The italic line directly under an image is its caption. */
-.md-body img {
+/* Journal photos and inline videos. The italic line directly under one is its caption. */
+.md-body img,
+.md-body video {
   display: block;
   width: 100%;
   height: auto;
@@ -205,15 +206,22 @@ body {
   background: var(--paper-deep);
 }
 
-.md-body p:has(> img:only-child) {
+.md-body video {
+  background: var(--ink);
+}
+
+.md-body p:has(> img:only-child),
+.md-body p:has(> video:only-child) {
   margin-top: 1.5rem;
 }
 
-.md-body p:has(> img:only-child) + p:has(> em:only-child) {
+.md-body p:has(> img:only-child) + p:has(> em:only-child),
+.md-body p:has(> video:only-child) + p:has(> em:only-child) {
   margin-top: 0.45rem;
 }
 
-.md-body p:has(> img:only-child) + p:has(> em:only-child) em {
+.md-body p:has(> img:only-child) + p:has(> em:only-child) em,
+.md-body p:has(> video:only-child) + p:has(> em:only-child) em {
   font-style: normal;
   font-weight: 700;
   color: var(--ink-soft);

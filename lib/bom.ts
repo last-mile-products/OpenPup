@@ -23,13 +23,13 @@ export const BOM: BomGroup[] = [
       {
         part: "SunFounder PiCar-X kit",
         role: "Driving, camera, and audio",
-        notes: "Chassis, wheels, camera, and the pan-tilt bracket.",
+        notes: "Built. Driving is calibrated, and right turns are still weird. The camera follows a face.",
         status: "have",
       },
       {
         part: "Raspberry Pi 5 (4GB)",
         role: "Onboard computer",
-        notes: "Mounted on the chassis plate on build day 1.",
+        notes: "On the chassis and on our Wi-Fi.",
         status: "have",
       },
       {
